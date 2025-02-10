@@ -105,6 +105,12 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
 }
 
 dependencies {
@@ -116,4 +122,8 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+
+    implementation fileTree(dir: "libs", include: ["*.aar"])
+
+    implementation "com.google.firebase:firebase-auth:21.1.0"
 }
